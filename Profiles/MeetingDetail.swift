@@ -27,10 +27,12 @@ struct IntDoubleBinding {
 struct DetailView: View
 {
     @Binding var limits: MeetingLimits
-    @State private var isEditing = false
-    
+    @State var isNew:Bool
+    @State var isEditing:Bool
+
     var body: some View
     {
+
         GeometryReader { reader in
             VStack
             {
@@ -121,7 +123,7 @@ struct DetailView: View
                 
                 //        VStack
                 //      {
-                Button{print ("button")} label:
+                NavigationLink(destination:MonitorView())
                 {
                     Text ("Start").font(.system(size: 28).bold())
                         .foregroundColor(Color.white)

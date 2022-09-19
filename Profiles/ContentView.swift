@@ -18,7 +18,7 @@ struct ContentView: View {
             List ($userData, id: \.id)
             {
                 $meetingDetails in
-                NavigationLink(destination: DetailView(limits: $meetingDetails))
+                NavigationLink(destination: DetailView(limits: $meetingDetails, isNew:false, isEditing: false))
                 {
                     Text(meetingDetails.meetingName)
                         .font(Font.system(size: 24))

@@ -29,6 +29,30 @@ struct MeetingLimits: Codable {
     
 }
 
+struct Participant {
+    var isTalking:Bool = false
+    var numTurns: Int = 0
+    var currentTurnDuration: Int = 0
+    var numOfTurns: Int = 0
+    var averageTurnLength: Float = 0.0
+}
+
+struct MeetingData {
+    let id:UUID
+    var totalTalkTime: Int = 0
+    var meetingDuration: Int = 0
+    var lastTalker: Int?
+    var participant:[Participant] = []
+
+
+    init()
+    {
+        self.id = UUID()
+        self.participant.append(Participant())
+        self.participant.append(Participant())
+    }
+}
+
 // Save and retrieve meeting limit data
 
 func updateMeetingLimits(updatedMeetingLimits: MeetingLimits){

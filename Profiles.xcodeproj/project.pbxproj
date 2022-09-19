@@ -13,6 +13,11 @@
 		D70DD73728D0B60700DDCFF0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D70DD73628D0B60700DDCFF0 /* Preview Assets.xcassets */; };
 		D70DD73E28D0BAFB00DDCFF0 /* MeetingDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70DD73D28D0BAFB00DDCFF0 /* MeetingDetail.swift */; };
 		D71593CB28D2743900857B5D /* Models2.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71593CA28D2743800857B5D /* Models2.swift */; };
+		D718572128D706F6000F046D /* MicrophoneMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D718572028D706F6000F046D /* MicrophoneMonitor.swift */; };
+		D718572428D707A7000F046D /* DequeModule in Frameworks */ = {isa = PBXBuildFile; productRef = D718572328D707A7000F046D /* DequeModule */; };
+		D718572628D707F2000F046D /* SoundResultsObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = D718572528D707F2000F046D /* SoundResultsObserver.swift */; };
+		D718572A28D709D1000F046D /* MonitorView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = D718572928D709D1000F046D /* MonitorView2.swift */; };
+		D718572C28D782DB000F046D /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D718572B28D782DB000F046D /* SwiftUIView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +28,10 @@
 		D70DD73628D0B60700DDCFF0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D70DD73D28D0BAFB00DDCFF0 /* MeetingDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingDetail.swift; sourceTree = "<group>"; };
 		D71593CA28D2743800857B5D /* Models2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models2.swift; sourceTree = "<group>"; };
+		D718572028D706F6000F046D /* MicrophoneMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicrophoneMonitor.swift; sourceTree = "<group>"; };
+		D718572528D707F2000F046D /* SoundResultsObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundResultsObserver.swift; sourceTree = "<group>"; };
+		D718572928D709D1000F046D /* MonitorView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonitorView2.swift; sourceTree = "<group>"; };
+		D718572B28D782DB000F046D /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -30,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D718572428D707A7000F046D /* DequeModule in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -57,8 +67,12 @@
 			children = (
 				D70DD72F28D0B60600DDCFF0 /* ProfilesApp.swift */,
 				D70DD73128D0B60600DDCFF0 /* ContentView.swift */,
+				D718572028D706F6000F046D /* MicrophoneMonitor.swift */,
+				D718572528D707F2000F046D /* SoundResultsObserver.swift */,
 				D71593CA28D2743800857B5D /* Models2.swift */,
 				D70DD73D28D0BAFB00DDCFF0 /* MeetingDetail.swift */,
+				D718572928D709D1000F046D /* MonitorView2.swift */,
+				D718572B28D782DB000F046D /* SwiftUIView.swift */,
 				D70DD73328D0B60700DDCFF0 /* Assets.xcassets */,
 				D70DD73528D0B60700DDCFF0 /* Preview Content */,
 			);
@@ -89,6 +103,9 @@
 			dependencies = (
 			);
 			name = Profiles;
+			packageProductDependencies = (
+				D718572328D707A7000F046D /* DequeModule */,
+			);
 			productName = Profiles;
 			productReference = D70DD72C28D0B60600DDCFF0 /* Profiles.app */;
 			productType = "com.apple.product-type.application";
@@ -117,6 +134,9 @@
 				Base,
 			);
 			mainGroup = D70DD72328D0B60600DDCFF0;
+			packageReferences = (
+				D718572228D707A7000F046D /* XCRemoteSwiftPackageReference "swift-collections" */,
+			);
 			productRefGroup = D70DD72D28D0B60600DDCFF0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -144,8 +164,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				D70DD73228D0B60600DDCFF0 /* ContentView.swift in Sources */,
+				D718572A28D709D1000F046D /* MonitorView2.swift in Sources */,
+				D718572C28D782DB000F046D /* SwiftUIView.swift in Sources */,
 				D71593CB28D2743900857B5D /* Models2.swift in Sources */,
+				D718572628D707F2000F046D /* SoundResultsObserver.swift in Sources */,
 				D70DD73028D0B60600DDCFF0 /* ProfilesApp.swift in Sources */,
+				D718572128D706F6000F046D /* MicrophoneMonitor.swift in Sources */,
 				D70DD73E28D0BAFB00DDCFF0 /* MeetingDetail.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -281,6 +305,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -310,6 +335,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -347,6 +373,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D718572228D707A7000F046D /* XCRemoteSwiftPackageReference "swift-collections" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-collections.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D718572328D707A7000F046D /* DequeModule */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D718572228D707A7000F046D /* XCRemoteSwiftPackageReference "swift-collections" */;
+			productName = DequeModule;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D70DD72428D0B60600DDCFF0 /* Project object */;
 }
