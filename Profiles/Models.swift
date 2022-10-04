@@ -6,38 +6,113 @@
 //
 
 import Foundation
+import SwiftUI
 
 // Struct for storing settings and limits for different types of meeting
-/*class MeetingLimits: ObservableObject, Codable {
-    
-    let  meetingName: String
+struct MeetingLimits: Codable
+{
+    let  id:UUID
+    var  meetingName: String
     var  meetingDurationMins: Int
-    var  maxShareVoice: Float
+    var  maxShareVoice: Int
     var  maxTurnLengthSecs: Int
     var  alwaysVisible: Bool
     
-    init(meetingName: String, meetingDurationMins: Int, maxShareVoice: Float, maxTurnLengthSecs: Int, alwaysVisible: Bool) {
+    init(meetingName: String, meetingDurationMins: Int, maxShareVoice: Int, maxTurnLengthSecs: Int, alwaysVisible: Bool)
+    {
+        self.id = UUID()
         self.meetingName = meetingName
         self.meetingDurationMins = meetingDurationMins
         self.maxShareVoice = maxShareVoice
         self.maxTurnLengthSecs = maxTurnLengthSecs
         self.alwaysVisible = alwaysVisible
     }
+}
 
-    
+struct Participant {
+    var isTalking:Bool = false
+    var numTurns: Int = 0
+    var currentTurnDuration: Int = 0
+    var averageTurnLength: Float = 0.0
+    var talkingAccumulator: Int = 0
+    var totalTalkTimeSecs: Int = 1
+    var voiceShare:Float = 0.5
 }
 
 
+struct Turn: Identifiable {
+    var id: UUID
+    var talker:Int
+    var turnLengthSecs: Int
+    
+    init(talker:Int, turnLengthSecs:Int)
+    {
+        self.id = UUID()
+        self.talker = talker
+        self.turnLengthSecs = turnLengthSecs
+    }
+}
+
+struct MeetingData {
+    let id:UUID
+    var totalTalkTimeIntervals: Int = 0
+    var lastTalker: Int?
+    var participant:[Participant]
+    var history:[Turn] = []
+    var elapsedTimeIntervals:Int = 0
+    var elapsedTimeMins:Int = 0
+    var totalTalkTimeSecs:Int = 0
+    
+    static let exampleParticipant = [Participant(isTalking: true, numTurns: 5, currentTurnDuration: 44, averageTurnLength: 12.3, talkingAccumulator: 0, totalTalkTimeSecs: 456, voiceShare: 0.34),
+                                     Participant(isTalking: false, numTurns: 5, currentTurnDuration: 0, averageTurnLength: 26.5, talkingAccumulator: 0, totalTalkTimeSecs: 999, voiceShare: 0.66)
+    ]
+
+    static let exampleHistory = [Turn(talker: 0, turnLengthSecs: 12),Turn(talker: 1, turnLengthSecs: 22),Turn(talker: 0, turnLengthSecs: 6),Turn(talker: 1, turnLengthSecs: 32),Turn(talker: 0, turnLengthSecs: 8),Turn(talker: 1, turnLengthSecs: 75),Turn(talker: 0, turnLengthSecs: 32),Turn(talker: 0, turnLengthSecs: 8),Turn(talker: 1, turnLengthSecs: 32),Turn(talker: 0, turnLengthSecs: 62)
+    ]
+
+    static let example = MeetingData(participant:exampleParticipant, history: exampleHistory)
+
+    
+    init(participant:[Participant] = [], history:[Turn] = [])
+    {
+        self.totalTalkTimeIntervals = 0
+        self.elapsedTimeIntervals = 0
+        self.elapsedTimeMins = 0
+        self.id = UUID()
+        self.participant = participant
+        self.history = history
+    }
+}
+
 // Save and retrieve meeting limit data
 
-func saveMeetingLimits(meetingLimits: [MeetingLimits]){
-    do{
-        let encoder = JSONEncoder()
-        let jsonMeetingLimits = try encoder.encode(meetingLimits)
+func updateMeetingLimits(updatedMeetingLimits: MeetingLimits){
+    
+    let jsonMeetingLimits = UserDefaults.standard.object(forKey: "userMeetingLimits") as? Data
+    let decoder = JSONDecoder()
+    var userMeetingLimits: [MeetingLimits] = [] // put this into the catch below
+    
+    do { try userMeetingLimits = decoder.decode([MeetingLimits].self, from: jsonMeetingLimits!)}
+    catch {print("Err")}
+    
+    if let row = userMeetingLimits.firstIndex(where: {$0.id == updatedMeetingLimits.id}) {
+        userMeetingLimits[row] = updatedMeetingLimits  // can i do this simpler?
+    } else {userMeetingLimits.append(updatedMeetingLimits)}
+    
+    let encoder = JSONEncoder()
+    do {let jsonMeetingLimits = try encoder.encode(userMeetingLimits)
         UserDefaults.standard.set(jsonMeetingLimits, forKey: "userMeetingLimits")
-    }catch let err{
-        print(err)
-    }
+    }catch {print("err")}
+    
+}
+
+func saveMeetingLimits(meetingLimits: [MeetingLimits]){
+    
+    let encoder = JSONEncoder()
+    do {let jsonMeetingLimits = try encoder.encode(meetingLimits)
+        UserDefaults.standard.set(jsonMeetingLimits, forKey: "userMeetingLimits")
+    }catch {print("err")}
+    
 }
 
 //retrieve data method
@@ -67,10 +142,9 @@ func defaultMeetingData() -> [MeetingLimits]{
     
     var defaultMeetingLimits:[MeetingLimits] = []
     
-    defaultMeetingLimits.append(MeetingLimits(meetingName: "Interview", meetingDurationMins: 45, maxShareVoice: 0.3, maxTurnLengthSecs: 90, alwaysVisible: true))
-    defaultMeetingLimits.append(MeetingLimits(meetingName: "Appraisal", meetingDurationMins: 60, maxShareVoice: 0.6, maxTurnLengthSecs: 180, alwaysVisible: false))
-    defaultMeetingLimits.append(MeetingLimits(meetingName: "Counselling Session", meetingDurationMins: 50, maxShareVoice: 0.2, maxTurnLengthSecs: 60, alwaysVisible: false))
-
+    defaultMeetingLimits.append(MeetingLimits(meetingName: "Interview", meetingDurationMins: 45, maxShareVoice: 30, maxTurnLengthSecs: 90, alwaysVisible: true))
+    defaultMeetingLimits.append(MeetingLimits(meetingName: "Appraisal", meetingDurationMins: 60, maxShareVoice: 60, maxTurnLengthSecs: 180, alwaysVisible: false))
+    defaultMeetingLimits.append(MeetingLimits(meetingName: "Counselling Session", meetingDurationMins: 50, maxShareVoice: 20, maxTurnLengthSecs: 60, alwaysVisible: false))
+    
     return(defaultMeetingLimits)
 }
-*/

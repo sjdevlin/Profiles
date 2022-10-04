@@ -21,10 +21,10 @@ class SoundResultsObserver: NSObject, SNResultsObserving {
 //        let formattedTime = String(format: "%.2f", timeInSeconds)
 //        print("Analysis result for audio at time: \(formattedTime)")
         
-        let confidence = classification.confidence * 100.0
-        let percentString = String(format: "%.2f%%", confidence)
+   //     let confidence = classification.confidence * 100.0
+ //       let percentString = String(format: "%.2f%%", confidence)
         
-        print("\(classification.identifier): \(percentString) confidence.\n") // Mark 5
+//        print("\(classification.identifier): \(percentString) confidence.\n") // Mark 5
         if (classification.identifier == "speech" && classification.confidence > 0.6) {
             speech = true
         }

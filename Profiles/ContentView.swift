@@ -15,43 +15,46 @@ struct ContentView: View {
     {
         NavigationView
         {
-            List ($userData, id: \.id)
+            VStack
             {
-                $meetingDetails in
-                NavigationLink(destination: DetailView(limits: $meetingDetails, isNew:false, isEditing: false))
+                Text("Select Meeting Type").padding(.top,20)
+                    .font(Font.system(size: 28))
+
+                List ($userData, id: \.id)
                 {
-                    Text(meetingDetails.meetingName)
-                        .font(Font.system(size: 24))
-                        .padding(6)
-                }
-                .swipeActions
-                {
-                    Button
+                    $meetingDetails in
+                    NavigationLink(destination: DetailView(limits: $meetingDetails, isNew:false, isEditing: false))
                     {
-                        if let index:Int = userData.firstIndex(where:{$0.id == meetingDetails.id})
+                        Text(meetingDetails.meetingName)
+                            .font(Font.system(size: 24))
+                            .padding(6)
+                    }
+                    .swipeActions
+                    {
+                        Button
                         {
-                            userData.remove(at: index)
-                            saveMeetingLimits(meetingLimits: userData)
+                            if let index:Int = userData.firstIndex(where:{$0.id == meetingDetails.id})
+                            {
+                                userData.remove(at: index)
+                                saveMeetingLimits(meetingLimits: userData)
+                            }
+                        }
+                        label :
+                        {
+                            Label("Delete", systemImage:"trash.circle.fill")
                         }
                     }
-                    label :
-                    {
-                        Label("Delete", systemImage:"trash.circle.fill")
-                    }
+                }}
+            .navigationBarItems(trailing: Button
+                {
+                userData.append(MeetingLimits(meetingName: "New Meeting", meetingDurationMins: 30, maxShareVoice: 50, maxTurnLengthSecs: 90, alwaysVisible: true))
+                saveMeetingLimits(meetingLimits: userData)
                 }
-            }
-                .navigationBarItems(trailing: Button
-                                    {
-                    userData.append(MeetingLimits(meetingName: "New Meeting", meetingDurationMins: 30, maxShareVoice: 50, maxTurnLengthSecs: 90, alwaysVisible: true))
-                    saveMeetingLimits(meetingLimits: userData)
-                }
-                                    label:
-                                        {
-                    Label("Delete", systemImage:"plus.circle.fill")
-                    
+                label:
+                {
+                Label("Add", systemImage:"plus.circle.fill")
                 }).tint(.orange)
             
-                .navigationTitle("Select a Meeting Type")
                 .font(Font.system(size: 30))
                 .navigationBarTitleDisplayMode(.inline)
         }

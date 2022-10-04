@@ -11,13 +11,16 @@
 		D70DD73228D0B60600DDCFF0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70DD73128D0B60600DDCFF0 /* ContentView.swift */; };
 		D70DD73428D0B60700DDCFF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D70DD73328D0B60700DDCFF0 /* Assets.xcassets */; };
 		D70DD73728D0B60700DDCFF0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D70DD73628D0B60700DDCFF0 /* Preview Assets.xcassets */; };
-		D70DD73E28D0BAFB00DDCFF0 /* MeetingDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70DD73D28D0BAFB00DDCFF0 /* MeetingDetail.swift */; };
-		D71593CB28D2743900857B5D /* Models2.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71593CA28D2743800857B5D /* Models2.swift */; };
+		D70DD73E28D0BAFB00DDCFF0 /* MeetingDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70DD73D28D0BAFB00DDCFF0 /* MeetingDetailView.swift */; };
+		D71593CB28D2743900857B5D /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71593CA28D2743800857B5D /* Models.swift */; };
 		D718572128D706F6000F046D /* MicrophoneMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D718572028D706F6000F046D /* MicrophoneMonitor.swift */; };
 		D718572428D707A7000F046D /* DequeModule in Frameworks */ = {isa = PBXBuildFile; productRef = D718572328D707A7000F046D /* DequeModule */; };
 		D718572628D707F2000F046D /* SoundResultsObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = D718572528D707F2000F046D /* SoundResultsObserver.swift */; };
-		D718572A28D709D1000F046D /* MonitorView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = D718572928D709D1000F046D /* MonitorView2.swift */; };
-		D718572C28D782DB000F046D /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D718572B28D782DB000F046D /* SwiftUIView.swift */; };
+		D718572A28D709D1000F046D /* MonitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D718572928D709D1000F046D /* MonitorView.swift */; };
+		D7606A2A28E33781000ADEFC /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7606A2928E33781000ADEFC /* test.swift */; };
+		D7C9923528DCF95200991B71 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C9923428DCF95200991B71 /* Constants.swift */; };
+		D7C9923728E06D0B00991B71 /* SummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C9923628E06D0B00991B71 /* SummaryView.swift */; };
+		D7C9923928E1ED4200991B71 /* ScreenTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C9923828E1ED4200991B71 /* ScreenTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,12 +29,15 @@
 		D70DD73128D0B60600DDCFF0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D70DD73328D0B60700DDCFF0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D70DD73628D0B60700DDCFF0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		D70DD73D28D0BAFB00DDCFF0 /* MeetingDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingDetail.swift; sourceTree = "<group>"; };
-		D71593CA28D2743800857B5D /* Models2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models2.swift; sourceTree = "<group>"; };
+		D70DD73D28D0BAFB00DDCFF0 /* MeetingDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingDetailView.swift; sourceTree = "<group>"; };
+		D71593CA28D2743800857B5D /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		D718572028D706F6000F046D /* MicrophoneMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicrophoneMonitor.swift; sourceTree = "<group>"; };
 		D718572528D707F2000F046D /* SoundResultsObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundResultsObserver.swift; sourceTree = "<group>"; };
-		D718572928D709D1000F046D /* MonitorView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonitorView2.swift; sourceTree = "<group>"; };
-		D718572B28D782DB000F046D /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
+		D718572928D709D1000F046D /* MonitorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonitorView.swift; sourceTree = "<group>"; };
+		D7606A2928E33781000ADEFC /* test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
+		D7C9923428DCF95200991B71 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		D7C9923628E06D0B00991B71 /* SummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryView.swift; sourceTree = "<group>"; };
+		D7C9923828E1ED4200991B71 /* ScreenTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,13 +72,16 @@
 			isa = PBXGroup;
 			children = (
 				D70DD72F28D0B60600DDCFF0 /* ProfilesApp.swift */,
+				D7C9923428DCF95200991B71 /* Constants.swift */,
 				D70DD73128D0B60600DDCFF0 /* ContentView.swift */,
 				D718572028D706F6000F046D /* MicrophoneMonitor.swift */,
 				D718572528D707F2000F046D /* SoundResultsObserver.swift */,
-				D71593CA28D2743800857B5D /* Models2.swift */,
-				D70DD73D28D0BAFB00DDCFF0 /* MeetingDetail.swift */,
-				D718572928D709D1000F046D /* MonitorView2.swift */,
-				D718572B28D782DB000F046D /* SwiftUIView.swift */,
+				D71593CA28D2743800857B5D /* Models.swift */,
+				D70DD73D28D0BAFB00DDCFF0 /* MeetingDetailView.swift */,
+				D718572928D709D1000F046D /* MonitorView.swift */,
+				D7606A2928E33781000ADEFC /* test.swift */,
+				D7C9923828E1ED4200991B71 /* ScreenTest.swift */,
+				D7C9923628E06D0B00991B71 /* SummaryView.swift */,
 				D70DD73328D0B60700DDCFF0 /* Assets.xcassets */,
 				D70DD73528D0B60700DDCFF0 /* Preview Content */,
 			);
@@ -164,13 +173,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				D70DD73228D0B60600DDCFF0 /* ContentView.swift in Sources */,
-				D718572A28D709D1000F046D /* MonitorView2.swift in Sources */,
-				D718572C28D782DB000F046D /* SwiftUIView.swift in Sources */,
-				D71593CB28D2743900857B5D /* Models2.swift in Sources */,
+				D718572A28D709D1000F046D /* MonitorView.swift in Sources */,
+				D71593CB28D2743900857B5D /* Models.swift in Sources */,
 				D718572628D707F2000F046D /* SoundResultsObserver.swift in Sources */,
 				D70DD73028D0B60600DDCFF0 /* ProfilesApp.swift in Sources */,
 				D718572128D706F6000F046D /* MicrophoneMonitor.swift in Sources */,
-				D70DD73E28D0BAFB00DDCFF0 /* MeetingDetail.swift in Sources */,
+				D70DD73E28D0BAFB00DDCFF0 /* MeetingDetailView.swift in Sources */,
+				D7C9923928E1ED4200991B71 /* ScreenTest.swift in Sources */,
+				D7C9923528DCF95200991B71 /* Constants.swift in Sources */,
+				D7C9923728E06D0B00991B71 /* SummaryView.swift in Sources */,
+				D7606A2A28E33781000ADEFC /* test.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,6 +314,8 @@
 				DEVELOPMENT_TEAM = 564J86N8B4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "This app requires permission to use the microphone";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -332,6 +346,8 @@
 				DEVELOPMENT_TEAM = 564J86N8B4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "This app requires permission to use the microphone";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
