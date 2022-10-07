@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State var userData: [MeetingLimits] = getMeetingLimits()
+    @State var userData: [MeetingLimits] = getMeetingLimits() // Create object that monitors mics and tracks conversation
     
     var body: some View
     {

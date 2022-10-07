@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+// this little struct just allows me to use the slider tool with an integer value
+
 struct IntDoubleBinding {
     let intValue : Binding<Int>
     
@@ -125,7 +127,7 @@ struct DetailView: View
                 Spacer()
                 
                 
-                NavigationLink(destination:MonitorView(limits:limits))
+                NavigationLink(destination:LayFlat(limits:limits))
                 {
                     Text ("Start").font(.system(size: 28).bold())
                         .foregroundColor(Color.white)

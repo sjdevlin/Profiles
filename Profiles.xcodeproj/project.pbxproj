@@ -17,14 +17,14 @@
 		D718572428D707A7000F046D /* DequeModule in Frameworks */ = {isa = PBXBuildFile; productRef = D718572328D707A7000F046D /* DequeModule */; };
 		D718572628D707F2000F046D /* SoundResultsObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = D718572528D707F2000F046D /* SoundResultsObserver.swift */; };
 		D718572A28D709D1000F046D /* MonitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D718572928D709D1000F046D /* MonitorView.swift */; };
-		D7606A2A28E33781000ADEFC /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7606A2928E33781000ADEFC /* test.swift */; };
-		D7C9923528DCF95200991B71 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C9923428DCF95200991B71 /* Constants.swift */; };
+		D7C9923528DCF95200991B71 /* Constants and Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C9923428DCF95200991B71 /* Constants and Globals.swift */; };
 		D7C9923728E06D0B00991B71 /* SummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C9923628E06D0B00991B71 /* SummaryView.swift */; };
-		D7C9923928E1ED4200991B71 /* ScreenTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C9923828E1ED4200991B71 /* ScreenTest.swift */; };
+		D7E65C9428EE13F900C07064 /* LayFlatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E65C9328EE13F900C07064 /* LayFlatView.swift */; };
+		D7E65CB028EF07B700C07064 /* MotionChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E65CAF28EF07B700C07064 /* MotionChecker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		D70DD72C28D0B60600DDCFF0 /* Profiles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Profiles.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D70DD72C28D0B60600DDCFF0 /* Mete.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mete.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D70DD72F28D0B60600DDCFF0 /* ProfilesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilesApp.swift; sourceTree = "<group>"; };
 		D70DD73128D0B60600DDCFF0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D70DD73328D0B60700DDCFF0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -34,10 +34,10 @@
 		D718572028D706F6000F046D /* MicrophoneMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicrophoneMonitor.swift; sourceTree = "<group>"; };
 		D718572528D707F2000F046D /* SoundResultsObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundResultsObserver.swift; sourceTree = "<group>"; };
 		D718572928D709D1000F046D /* MonitorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonitorView.swift; sourceTree = "<group>"; };
-		D7606A2928E33781000ADEFC /* test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
-		D7C9923428DCF95200991B71 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		D7C9923428DCF95200991B71 /* Constants and Globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Constants and Globals.swift"; sourceTree = "<group>"; };
 		D7C9923628E06D0B00991B71 /* SummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryView.swift; sourceTree = "<group>"; };
-		D7C9923828E1ED4200991B71 /* ScreenTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenTest.swift; sourceTree = "<group>"; };
+		D7E65C9328EE13F900C07064 /* LayFlatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayFlatView.swift; sourceTree = "<group>"; };
+		D7E65CAF28EF07B700C07064 /* MotionChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionChecker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,7 +63,7 @@
 		D70DD72D28D0B60600DDCFF0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D70DD72C28D0B60600DDCFF0 /* Profiles.app */,
+				D70DD72C28D0B60600DDCFF0 /* Mete.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -71,17 +71,10 @@
 		D70DD72E28D0B60600DDCFF0 /* Profiles */ = {
 			isa = PBXGroup;
 			children = (
+				D7E65CB328F086D000C07064 /* Views */,
+				D7E65CB228F086B800C07064 /* Constants */,
+				D7E65CB128F0869800C07064 /* Models */,
 				D70DD72F28D0B60600DDCFF0 /* ProfilesApp.swift */,
-				D7C9923428DCF95200991B71 /* Constants.swift */,
-				D70DD73128D0B60600DDCFF0 /* ContentView.swift */,
-				D718572028D706F6000F046D /* MicrophoneMonitor.swift */,
-				D718572528D707F2000F046D /* SoundResultsObserver.swift */,
-				D71593CA28D2743800857B5D /* Models.swift */,
-				D70DD73D28D0BAFB00DDCFF0 /* MeetingDetailView.swift */,
-				D718572928D709D1000F046D /* MonitorView.swift */,
-				D7606A2928E33781000ADEFC /* test.swift */,
-				D7C9923828E1ED4200991B71 /* ScreenTest.swift */,
-				D7C9923628E06D0B00991B71 /* SummaryView.swift */,
 				D70DD73328D0B60700DDCFF0 /* Assets.xcassets */,
 				D70DD73528D0B60700DDCFF0 /* Preview Content */,
 			);
@@ -94,6 +87,37 @@
 				D70DD73628D0B60700DDCFF0 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		D7E65CB128F0869800C07064 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D718572528D707F2000F046D /* SoundResultsObserver.swift */,
+				D718572028D706F6000F046D /* MicrophoneMonitor.swift */,
+				D7E65CAF28EF07B700C07064 /* MotionChecker.swift */,
+				D71593CA28D2743800857B5D /* Models.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		D7E65CB228F086B800C07064 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				D7C9923428DCF95200991B71 /* Constants and Globals.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		D7E65CB328F086D000C07064 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D70DD73128D0B60600DDCFF0 /* ContentView.swift */,
+				D70DD73D28D0BAFB00DDCFF0 /* MeetingDetailView.swift */,
+				D718572928D709D1000F046D /* MonitorView.swift */,
+				D7E65C9328EE13F900C07064 /* LayFlatView.swift */,
+				D7C9923628E06D0B00991B71 /* SummaryView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -116,7 +140,7 @@
 				D718572328D707A7000F046D /* DequeModule */,
 			);
 			productName = Profiles;
-			productReference = D70DD72C28D0B60600DDCFF0 /* Profiles.app */;
+			productReference = D70DD72C28D0B60600DDCFF0 /* Mete.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -177,12 +201,12 @@
 				D71593CB28D2743900857B5D /* Models.swift in Sources */,
 				D718572628D707F2000F046D /* SoundResultsObserver.swift in Sources */,
 				D70DD73028D0B60600DDCFF0 /* ProfilesApp.swift in Sources */,
+				D7E65CB028EF07B700C07064 /* MotionChecker.swift in Sources */,
+				D7E65C9428EE13F900C07064 /* LayFlatView.swift in Sources */,
 				D718572128D706F6000F046D /* MicrophoneMonitor.swift in Sources */,
 				D70DD73E28D0BAFB00DDCFF0 /* MeetingDetailView.swift in Sources */,
-				D7C9923928E1ED4200991B71 /* ScreenTest.swift in Sources */,
-				D7C9923528DCF95200991B71 /* Constants.swift in Sources */,
+				D7C9923528DCF95200991B71 /* Constants and Globals.swift in Sources */,
 				D7C9923728E06D0B00991B71 /* SummaryView.swift in Sources */,
-				D7606A2A28E33781000ADEFC /* test.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,6 +332,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Profiles/Preview Content\"";
@@ -320,18 +345,18 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = sjdevlin.Profiles;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Mete;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -340,6 +365,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Profiles/Preview Content\"";
@@ -352,18 +378,18 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = sjdevlin.Profiles;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Mete;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
