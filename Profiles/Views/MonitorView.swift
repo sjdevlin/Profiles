@@ -96,19 +96,17 @@ struct MonitorView: View {
             VStack(spacing:0){
                 HStack {
                     Spacer()
-                    Spacer()
                     Text ("Minutes\nRemaining")
                         .font(.system(size: 32))
+                        .multilineTextAlignment(.center)
                     Spacer()
-                    Text(String(minutesRemaining))
-                        .font(.system(size: 72))
-                        .foregroundColor((percentageGone <= kAmber) ? Color.white :Color.orange)
-                    Spacer()
-                }.padding([.leading], 20)
+                }.padding(.top, 20)
                 
                 
                 Spacer()
                 ZStack{
+
+
                     VStack(spacing:0){
                         
                         Rectangle()
@@ -123,6 +121,10 @@ struct MonitorView: View {
                     .mask(RoundedRectangle(cornerRadius:40)
                         .frame(width: kRectangleWidth, height: kRectangleHeight))
                     
+                    Text(String(minutesRemaining))
+                        .font(.system(size: 72))
+                        .foregroundColor((percentageGone <= kAmber) ? Color.white :Color.orange)
+
                 }
                 
                 Spacer()
@@ -146,31 +148,39 @@ struct MonitorView: View {
             
             ZStack
             {
-                GeometryReader {geometry in
                     ZStack
                     {
 
                         Text(String(format:"%.0f",meeting.participant[kCoach].voiceShare*100)+"%")
                             .font(.system(size: 72))
                             .frame(width:kRectangleWidth)
-                            .padding()
-                            .foregroundColor(                                ((CGFloat(meeting.participant[kCoach].currentTurnDuration) / CGFloat(maxTurnLen)) < kAmber) ?  Color.white: Color.black)
-                            .background((CGFloat(meeting.participant[kCoach].currentTurnDuration) / CGFloat(maxTurnLength)) < kAmber) ?  Color.green: Color.orange)
+                            .padding(.top)
+                            .padding(.bottom)
+                            .foregroundColor(.white)
+                            .background(.green)
                             .clipShape(Capsule())
                             .position(x: UIScreen.main.bounds.width/2, y: kRectangleHeight - rectangleCoach)
+
+                        Text(String(maxShare)+"%")
+                            .font(.system(size: 28))
+                            .foregroundColor(.white)
+                            .position(x: 50, y: kRectangleHeight - rectangleLimit)
+
+                        Path() {path in
+                            path.move(to: CGPoint(x:85,y: kRectangleHeight - rectangleLimit ))
+                            path.addLine(to: CGPoint(x:350, y: kRectangleHeight - rectangleLimit))
+                        }.stroke(.white, lineWidth: 2)
                     }
-                }
                 
                 VStack {
                     HStack {
                         Spacer()
-                        Spacer()
                         Text ("Voice\nShare")
                             .font(.system(size: 32))
                             .foregroundColor(Color.white)
+                            .multilineTextAlignment(.center)
                         Spacer()
-                        Spacer()
-                    }.padding([.leading], 30)
+                    }.padding(.top, 20)
                     Spacer()
                 }
                 
@@ -213,21 +223,23 @@ struct MonitorView: View {
                     .stroke(Color.gray,style: StrokeStyle(lineWidth:8))
                     .frame(width:radius * 2.2, height:radius * 2.2)
                 
+                Text(String(meeting.participant[kCoach].currentTurnDuration)+" s")
+                    .font(.system(size: 72))
+                    .foregroundColor(
+                        ((CGFloat(meeting.participant[kCoach].currentTurnDuration) / CGFloat(maxTurnLength)) < kAmber) ?  Color.white: Color.orange                    )
+
+                
                 
                 VStack {
                     HStack {
                         Spacer()
-                        Spacer()
                         Text ("Turn\nLength")
                             .font(.system(size: 32))
                             .foregroundColor(Color.white)
+                            .multilineTextAlignment(.center)
                         Spacer()
-                        Text(String(meeting.participant[kCoach].currentTurnDuration)+" s")
-                            .font(.system(size: 72))
-                            .foregroundColor(
-                                ((CGFloat(meeting.participant[kCoach].currentTurnDuration) / CGFloat(maxTurnLength)) < kAmber) ?  Color.white: Color.orange                    )
-                        Spacer()
-                    }.padding([.leading], 30)
+                    }.padding(.top, 20)
+                    
                     Spacer()
                 }
                 
