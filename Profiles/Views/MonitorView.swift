@@ -18,8 +18,6 @@ struct MonitorView: View {
     
     var body: some View
     {
-        NavigationView
-        {
             ZStack
             {
                 NavigationLink(destination: SummaryView(meeting: mic.meeting, limits: limits), isActive: $meetingEnded,
@@ -65,7 +63,6 @@ struct MonitorView: View {
             .navigationBarHidden(true)
             .navigationBarBackButtonHidden(true)
                 
-            }
             .tabViewStyle(.page)
             .onAppear(
                 perform: {
@@ -74,8 +71,8 @@ struct MonitorView: View {
             )
             .navigationBarHidden(true)
             .navigationBarBackButtonHidden(true)
-            
-        }
+    }
+
     }
     
     
@@ -118,11 +115,11 @@ struct MonitorView: View {
                             .frame(width: kRectangleWidth, height: rectangleRemaining)
                     }
                     
-                    .mask(RoundedRectangle(cornerRadius:40)
+                    .mask(RoundedRectangle(cornerRadius:38)
                         .frame(width: kRectangleWidth, height: kRectangleHeight))
                     
                     Text(String(minutesRemaining))
-                        .font(.system(size: 72))
+                        .font(.system(size: 65))
                         .foregroundColor((percentageGone <= kAmber) ? Color.white :Color.orange)
 
                 }
@@ -140,7 +137,7 @@ struct MonitorView: View {
         
         var body: some View {
             
-            let percentageCoach:CGFloat = CGFloat(meeting.participant[kCoach].totalTalkTimeSecs) / (CGFloat(meeting.participant[kClient].totalTalkTimeSecs) + CGFloat(meeting.participant[kCoach].totalTalkTimeSecs))
+            let percentageCoach:CGFloat = CGFloat(meeting.participant[kCoach].voiceShare)
             let maxShareFloat = CGFloat(maxShare) / 100.0
             let rectangleCoach:CGFloat = kRectangleHeight * percentageCoach
             let rectangleLimit:CGFloat = kRectangleHeight * maxShareFloat
@@ -151,15 +148,15 @@ struct MonitorView: View {
                     ZStack
                     {
 
-                        Text(String(format:"%.0f",meeting.participant[kCoach].voiceShare*100)+"%")
-                            .font(.system(size: 72))
+                        Text(meeting.participant[kCoach].voiceShare > 0.7 ? ">70" : String(format:"%.0f",meeting.participant[kCoach].voiceShare*100)+"%")
+                            .font(.system(size: 65))
                             .frame(width:kRectangleWidth)
                             .padding(.top)
                             .padding(.bottom)
                             .foregroundColor(.white)
-                            .background(.green)
+                            .background(percentageCoach > maxShareFloat * kAmber ? Color.orange: Color.green)
                             .clipShape(Capsule())
-                            .position(x: UIScreen.main.bounds.width/2, y: kRectangleHeight - rectangleCoach)
+                            .position(x: UIScreen.main.bounds.width/2, y: percentageCoach > 0.7 ? kRectangleHeight * 0.3 : kRectangleHeight - rectangleCoach)
 
                         Text(String(maxShare)+"%")
                             .font(.system(size: 28))
@@ -197,8 +194,8 @@ struct MonitorView: View {
         
         let radius: CGFloat = 130
         let pi = Double.pi
-        let dotLength: CGFloat = 5
-        let spaceLength: CGFloat = 14.84
+        let dotLength: CGFloat = 4
+        let spaceLength: CGFloat = 10.8
         let dotCount = 60
         let circumference: CGFloat = 816.4
         
@@ -224,7 +221,7 @@ struct MonitorView: View {
                     .frame(width:radius * 2.2, height:radius * 2.2)
                 
                 Text(String(meeting.participant[kCoach].currentTurnDuration)+" s")
-                    .font(.system(size: 72))
+                    .font(.system(size: 65))
                     .foregroundColor(
                         ((CGFloat(meeting.participant[kCoach].currentTurnDuration) / CGFloat(maxTurnLength)) < kAmber) ?  Color.white: Color.orange                    )
 

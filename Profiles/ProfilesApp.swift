@@ -8,11 +8,18 @@
 import SwiftUI
 
 @main
+
 struct ProfilesApp: App {
-    
+
+    // this is to allow pop to root for iOS version under 16
+
+    @ObservedObject var appState = AppState()
+
     var body: some Scene {
         WindowGroup {
-            ContentView().preferredColorScheme(.dark)
+            ContentView()
+                .environmentObject(appState)
+                .preferredColorScheme(.dark)
         }
     }
 }

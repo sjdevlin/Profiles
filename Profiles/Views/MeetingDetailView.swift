@@ -158,7 +158,6 @@ struct DetailView: View
         })
         .ignoresSafeArea(.keyboard, edges: .bottom)
         .navigationBarBackButtonHidden(isEditing ? true :  false)
-        
         .navigationBarItems(leading: Button(isEditing ? "Cancel" : "")
         {
             withAnimation

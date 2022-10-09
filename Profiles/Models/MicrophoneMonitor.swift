@@ -241,9 +241,9 @@ class MicrophoneMonitor: ObservableObject
                         
                     // only increment metrics once a second
                     if self.meeting.participant[self.currentTalker].talkingAccumulator > kIntervalsPerSecond
-                        {
+                    {
                         print ("Talking: \(self.currentTalker) total talk: \(self.meeting.participant[self.currentTalker].totalTalkTimeSecs))")
-
+                        
                         if self.meeting.lastTalker != self.currentTalker
                         {
                             self.meeting.participant[self.currentListener].numTurns += 1
@@ -251,17 +251,20 @@ class MicrophoneMonitor: ObservableObject
                             
                             self.meeting.lastTalker = self.currentTalker
                         }
-                                                        
+                        
                         self.meeting.participant[self.currentTalker].currentTurnDuration += 1
                         self.meeting.participant[self.currentTalker].totalTalkTimeSecs += 1
                         self.meeting.participant[self.currentTalker].talkingAccumulator = 0
-
+                        
                         self.meeting.participant[self.currentListener].currentTurnDuration = 0
-
+                        
                         self.meeting.totalTalkTimeSecs += 1
-
+                        
                         self.meeting.participant[self.currentTalker].voiceShare = Float(self.meeting.participant[self.currentTalker].totalTalkTimeSecs) / Float(self.meeting.totalTalkTimeSecs)
-                        }
+                        
+                        self.meeting.participant[self.currentListener].voiceShare = Float(self.meeting.participant[self.currentListener].totalTalkTimeSecs) / Float(self.meeting.totalTalkTimeSecs)
+
+                    }
 
                 }
                 else

@@ -43,11 +43,8 @@ class Motion:ObservableObject {
             self.newz = self.position()
             self.difference = (0.9 * self.difference) + (0.1 * (self.newz - self.oldz))
             self.oldz = self.newz
-            print ("diff: \(self.difference)")
-            print ("z: \(self.newz)")
             if ( abs(self.difference) < 0.0001 && self.newz > -0.997 && self.newz < -0.994)
             {
-                print ("OK!")
                 self.motionManager.stopAccelerometerUpdates()
                 self.isFlat = true
                 self.motionTimer?.invalidate()

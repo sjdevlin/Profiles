@@ -33,10 +33,10 @@ struct MeetingLimits: Codable
 
 struct Participant {
     var isTalking:Bool = false
-    var numTurns: Int = 0
+    var numTurns: Int = 1 //  Need to check this
     var currentTurnDuration: Int = 0
     var talkingAccumulator: Int = 0
-    var totalTalkTimeSecs: Int = 1
+    var totalTalkTimeSecs: Int = 0
     var voiceShare:Float = 0.5
 }
 
