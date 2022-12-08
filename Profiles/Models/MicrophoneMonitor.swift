@@ -101,7 +101,7 @@ class MicrophoneMonitor: ObservableObject
         
         // end of section to be rewritten
         // +++++++++++++++++++++++++++++++++
-        
+
         do {
             try audioSession.setPreferredInputOrientation(AVAudioSession.StereoOrientation.landscapeLeft)
             try frontDataSource.setPreferredPolarPattern(.stereo)
