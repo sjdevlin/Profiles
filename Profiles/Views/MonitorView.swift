@@ -138,9 +138,12 @@ struct MonitorView: View {
         var body: some View {
             
             let percentageCoach:CGFloat = CGFloat(meeting.participant[kCoach].voiceShare)
+            let percentageClient:CGFloat = CGFloat(meeting.participant[kClient].voiceShare)
             let maxShareFloat = CGFloat(maxShare) / 100.0
-            let rectangleCoach:CGFloat = kRectangleHeight * percentageCoach
-            let rectangleLimit:CGFloat = kRectangleHeight * maxShareFloat
+            let rectangleCoach:CGFloat = kRectangleHeight * percentageCoach * 0.85
+            let rectangleClient:CGFloat = kRectangleHeight * percentageClient * 0.85
+            let rectangleLimit:CGFloat = kRectangleHeight * maxShareFloat * 0.85
+            let limitLine:CGFloat = 90 + kRectangleHeight - rectangleLimit
             
             
             ZStack
@@ -148,25 +151,36 @@ struct MonitorView: View {
                     ZStack
                     {
 
-                        Text(meeting.participant[kCoach].voiceShare > 0.7 ? ">70" : String(format:"%.0f",meeting.participant[kCoach].voiceShare*100)+"%")
-                            .font(.system(size: 65))
-                            .frame(width:kRectangleWidth)
-                            .padding(.top)
-                            .padding(.bottom)
-                            .foregroundColor(.white)
-                            .background(percentageCoach > maxShareFloat * kAmber ? Color.orange: Color.green)
-                            .clipShape(Capsule())
-                            .position(x: UIScreen.main.bounds.width/2, y: percentageCoach > 0.7 ? kRectangleHeight * 0.3 : kRectangleHeight - rectangleCoach)
+                        VStack{
+                            Spacer()
+                            Spacer()
 
+                            Text(String(format:"%.0f",meeting.participant[kClient].voiceShare*100)+"%")
+                                .font(.system(size: 48))
+                                .frame(width:kRectangleWidth, height:rectangleClient)
+                                .padding(.bottom)
+                                .foregroundColor(.white)
+                                .background(percentageCoach > maxShareFloat * kAmber ?  Color(.lightGray) : Color.green)
+
+                            Text(String(format:"%.0f",meeting.participant[kCoach].voiceShare*100)+"%")
+                                .font(.system(size: 65))
+                                .frame(width:kRectangleWidth, height:rectangleCoach)
+                                .padding(.bottom)
+                                .foregroundColor(.white)
+                                .background(percentageCoach > maxShareFloat * kAmber ? Color.orange: Color(.lightGray))
+                            Spacer()
+
+                        }
+                        
                         Text(String(maxShare)+"%")
-                            .font(.system(size: 28))
+                            .font(.system(size: 20))
                             .foregroundColor(.white)
-                            .position(x: 50, y: kRectangleHeight - rectangleLimit)
+                            .position(x: 50, y: limitLine)
 
                         Path() {path in
-                            path.move(to: CGPoint(x:85,y: kRectangleHeight - rectangleLimit ))
-                            path.addLine(to: CGPoint(x:350, y: kRectangleHeight - rectangleLimit))
-                        }.stroke(.white, lineWidth: 2)
+                            path.move(to: CGPoint(x:75,y: limitLine))
+                            path.addLine(to: CGPoint(x:300, y: limitLine))
+                        }.stroke(.white, lineWidth: 4)
                     }
                 
                 VStack {
@@ -192,38 +206,63 @@ struct MonitorView: View {
         @Binding var meeting: MeetingData
         let maxTurnLength:Int
         
-        let radius: CGFloat = 130
+        let radius: CGFloat = 120
         let pi = Double.pi
         let dotLength: CGFloat = 4
         let spaceLength: CGFloat = 10.8
         let dotCount = 60
-        let circumference: CGFloat = 816.4
-        
+        let circumference: CGFloat = 754.1
+
+        let clientRadius: CGFloat = 75
+        let clientDotLength: CGFloat = 3
+        let clientSpaceLength: CGFloat = 8
+        let clientCircumference: CGFloat = 471.3
+
         
         var body: some View {
             
             let arcFractionLimit = CGFloat(maxTurnLength)/60
             let arcFraction = CGFloat(meeting.participant[kCoach].currentTurnDuration)/60
+            let clientArcFraction = CGFloat(meeting.participant[kClient].currentTurnDuration)/60
             let turnPercentage = CGFloat(meeting.participant[kCoach].currentTurnDuration) / CGFloat(maxTurnLength)
             ZStack{
-                Circle()
-                    .trim(from: 0.0, to: arcFraction)
-                    .rotation(.degrees(-90))
-                    .stroke(
-                        (turnPercentage < kAmber) ?  Color.white: Color.orange,
-                        style: StrokeStyle(lineWidth: 12, lineCap: .butt, lineJoin: .miter, miterLimit: 0, dash: [dotLength, spaceLength], dashPhase: 0))
-                    .frame(width: radius * 2, height: radius * 2)
-                
-                Circle()
-                    .trim(from: 0.0, to: arcFractionLimit)
-                    .rotation(.degrees(-90))
-                    .stroke(Color.gray,style: StrokeStyle(lineWidth:8))
-                    .frame(width:radius * 2.2, height:radius * 2.2)
-                
-                Text(String(meeting.participant[kCoach].currentTurnDuration)+" s")
-                    .font(.system(size: 65))
-                    .foregroundColor(
-                        ((CGFloat(meeting.participant[kCoach].currentTurnDuration) / CGFloat(maxTurnLength)) < kAmber) ?  Color.white: Color.orange                    )
+                VStack{
+                    ZStack{
+                        Circle()
+                            .trim(from: 0.0, to: clientArcFraction)
+                            .rotation(.degrees(-90))
+                            .stroke(
+                                Color.green,
+                                style: StrokeStyle(lineWidth: 12, lineCap: .butt, lineJoin: .miter, miterLimit: 0, dash: [clientDotLength, clientSpaceLength], dashPhase: 0))
+                            .frame(width: clientRadius * 2, height: clientRadius * 2)
+                        
+                        Text(String(meeting.participant[kClient].currentTurnDuration)+" s")
+                            .font(.system(size: 48))
+                            .foregroundColor(Color.green)
+                    }.padding(.bottom, 40)
+                        .padding(.top, 40)
+
+                    ZStack{
+                        Circle()
+                            .trim(from: 0.0, to: arcFraction)
+                            .rotation(.degrees(-90))
+                            .stroke(
+                                (turnPercentage < kAmber) ?  Color.white: Color.orange,
+                                style: StrokeStyle(lineWidth: 12, lineCap: .butt, lineJoin: .miter, miterLimit: 0, dash: [dotLength, spaceLength], dashPhase: 0))
+                            .frame(width: radius * 2, height: radius * 2)
+                        
+                        Circle()
+                            .trim(from: 0.0, to: arcFractionLimit)
+                            .rotation(.degrees(-90))
+                            .stroke(Color.gray,style: StrokeStyle(lineWidth:8))
+                            .frame(width:radius * 2.2, height:radius * 2.2)
+                        
+                        Text(String(meeting.participant[kCoach].currentTurnDuration)+" s")
+                            .font(.system(size: 65))
+                            .foregroundColor(
+                                ((CGFloat(meeting.participant[kCoach].currentTurnDuration) / CGFloat(maxTurnLength)) < kAmber) ?  Color.white: Color.orange                    )
+                    }
+                }
 
                 
                 
