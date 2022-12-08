@@ -24,8 +24,8 @@ var kShareTangentPoint:CGFloat = pow((UIScreen.main.bounds.width / 2),2) / ((pow
 
 
 
-let kCoachThreshold:Float = 1.0 // volume difference across stereo mics that indicate which speaker...
-let kClientThreshold:Float = 0.95 // ...eventually these needs to be dynamically calculated
+let kCoachThreshold:Float = 1.1 // volume difference across stereo mics that indicate which speaker...
+let kClientThreshold:Float = 1 // ...eventually these needs to be dynamically calculated
 
 let kIntervalsPerSecond = Int(1.0/kInterval) // Samples per second
 
