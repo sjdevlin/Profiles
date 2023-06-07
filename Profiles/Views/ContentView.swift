@@ -66,8 +66,12 @@ struct ContentView: View {
 }
 
 struct ContentView_Previews: PreviewProvider {
+
+    static let appStateForPreview = AppState()
+
     static var previews: some View {
         ContentView()
+            .environmentObject(appStateForPreview)
             .previewInterfaceOrientation(.portraitUpsideDown)
             .preferredColorScheme(.dark)
     }
